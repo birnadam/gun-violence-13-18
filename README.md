@@ -8,7 +8,7 @@ The app begins at a page that displays a brief intro and then underneath that is
 your mouse over a state it displays how many seperate incidents of gun violence have occured in that state from 2013 all the way until
 now.
 
-![demo image here](https://birnadam.github.io/portfolio/img/gundammap.jpg)
+![demo image here](https://birnapwnsu.github.io/portfolio/img/gundammap.jpg)
 
 Once you click on a specific state, the map zooms in and you'll see more points appear on the map. These points specifically
 depict where incidents occured. You can tell which cities/counties are more concentrated or prone to gun violence. Simultaneously, there's a container underneath the map which is populated with incidents you can scroll through as well.
