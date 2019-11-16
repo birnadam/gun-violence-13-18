@@ -1,40 +1,30 @@
-"use strict";
-
-const express = require('express');
-const mongoose = require("mongoose");
+const express = require("express");
+const connection = require('./app/data/connection');
+// const fs = require('fs');	
+const path = require('path');
 const app = express();
-
-// Load Mongoose DB Models
-const db = require("./models");
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Load routes
-const index = require("./routes/index");
-const incidents = require("./routes/api/incidents");
 
-// Serving static files on Express
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js', express.static(__dirname + '/public/js'));
-app.use('/images', express.static(__dirname + '/public/images'));
-app.use('/data', express.static(__dirname + '/data'));
 
-// Set up middleware
-app.use("/", index);
-app.use("/api/incidents", incidents);
+// // Serving static files on Express
+app.use('/css',express.static(__dirname + '/app/public/css'));
+app.use('/js',express.static(__dirname + '/app/public/js'));
+app.use('/images',express.static(__dirname + '/app/public/images'));
+app.use('/data',express.static(__dirname + '/app/data'));
 
-// Connect to Mongo DB
-mongoose.connect(db.MONGODB_URI, {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useFindAndModify: false
-}).then(() => console.log(`Connected to MongoDB ${db.MONGODB_URI}`))
-	.catch(err => console.log(err));
+// // API and HTML routes
 
-// Server going live
+require("./app/routing/htmlRoutes.js")(app);
+// app.use(express.static(__dirname, "/app/public"))
+app.use('/api/data', require('./app/routing/apiRoutes'));
+
+
+// Checking if server is live
 app.listen(PORT, function () {
 	console.log("Server started on PORT: " + PORT);
 });
