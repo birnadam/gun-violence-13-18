@@ -19,8 +19,8 @@ export default props => (
   <ThemeProvider theme={theme}>
     <AppBar position="static">
       <Toolbar color="primary">
-        <Typography variant="h1" color="secondary.light">
-          Prevent G.V.
+        <Typography variant="h4" color="secondary.light">
+           PreventGV
         </Typography>
       </Toolbar>
     </AppBar>
