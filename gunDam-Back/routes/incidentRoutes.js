@@ -1,21 +1,33 @@
 const express = require("express");
 const router = express.Router();
+const { states } = require("../states");
 
-const { pullIncident, pullIncidentByState, } = require("../controllers/incident");
+const {
+  pullIncident,
+  pullIncidentByState,
+  pullAllIncidentsByState,
+  pullAllIncidentsByStateNumKilled,
+  countIncidentsPerState
+} = require("../controllers/incident");
 
-// // get incidents using controller
-// router.get("/", (req, res) => {
-//     res.json({
-//         incident: req.incident
-//     })
-// })
-// get incidents using controller
-// router.get("/", (req, res) => {
-//     // res.send(pullIncidents)
-//     console.log(res);
-//     console.log(pullIncidents);
-// })
-
+// // pulls one incident
 // pullIncident();
-pullIncidentByState("California");
+// // pull incident by state
+// pullIncidentByState("California");
+
+
+// // pulls all incidents per state sorted by date
+// can combine this with state collected later
+// pullAllIncidentsByState("Arizona");
+// // pulls all incidents per state by sorted by number killed
+// pullAllIncidentsByStateNumKilled("Texas");
+
+// counts number of incidents per state passthrough
+// countIncidentsPerState("California");
+
+// lists each state with number of incidents, can use this to populate data later for conversion
+states.forEach(state => {
+  return [state, countIncidentsPerState(state)];
+});
+
 module.exports = router;
