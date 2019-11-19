@@ -1,4 +1,4 @@
-# gunDam.
+# Gun Violence 2013 - 2018 A Data Vis.
 
 ## What is it?
 gunDam (gun damage) is a site focused towards informing users about gun violence in the U.S. We emphasize how prominent incidents are via data visualization. The focal point is our D3 choropleth map. 
