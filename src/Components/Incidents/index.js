@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import LeftPane from './LeftPane'
 import RightPane from './RightPane'
+import './style.css'
 
 const styles = {
   Paper: {
