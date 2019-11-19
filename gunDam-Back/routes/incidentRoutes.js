@@ -19,8 +19,8 @@ router.get("/", async (req, res) => {
     // pullAllIncidentsByStateNumKilled("Texas");
   } catch (error) {
     res.status(500).json({ message: error.message });
+    res.send("get request");
   }
-  // res.send("get request");
 });
 
 router.get("/incidents", (req, res) => {

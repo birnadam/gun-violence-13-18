@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // allows us to use .env
 require("dotenv").config();
@@ -24,6 +25,7 @@ mongoose
 // middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json());
+app.use(cors());
 
 // routes middleware
 app.use("/api", incidentRoutes);
