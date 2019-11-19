@@ -9,7 +9,6 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: '#E4E3DB',
-      textSecondary: '#E4E3DB',
       main: '#113743',
       contrastText: '#C5BEBA'
     }
@@ -20,8 +19,8 @@ export default props => (
   <ThemeProvider theme={theme}>
     <AppBar position="static">
       <Toolbar color="primary">
-        <Typography variant="h4" color="textSecondary">
-           PreventGV
+        <Typography variant="h4">
+          United States, Gun Violence (2013 - 2018)
         </Typography>
       </Toolbar>
     </AppBar>

@@ -11,15 +11,14 @@ import * as County from '../Data/county.json'
 
 const styles = {
   Paper: {
-    padding: 20,
-    marginTop: 5,
-    marginBottom: 5,
+    margin: 5,
+    borderRadius: 5,
     backgroundColor: '#c5beba',
     color: '#5c001a'
   }
 }
 
-class RightPane extends Component {
+class Map extends Component {
   mapStyle = (mapType, weight) => {
     let mapTypeColor
     switch (mapType) {
@@ -92,8 +91,8 @@ class RightPane extends Component {
       let layer = e.target
 
       layer.setStyle({
-        weight: 5,
-        color: '#666',
+        weight: 2,
+        color: '#C5001A',
         dashArray: '',
         fillOpacity: 0.7
       })
@@ -231,4 +230,4 @@ class RightPane extends Component {
   }
 }
 
-export default RightPane
+export default Map

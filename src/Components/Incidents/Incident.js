@@ -3,10 +3,7 @@ import { Paper } from '@material-ui/core'
 
 export default ({ styles }) =>
 <Paper style={styles.Paper}>
-    <h1>left</h1>
-    <h1>left</h1>
-    <h1>left</h1>
-    <h1>left</h1>
-    <h1>left</h1>
-    <h1>left</h1>
+    <div id="incident">
+    incidents here
+    </div>
 </Paper>

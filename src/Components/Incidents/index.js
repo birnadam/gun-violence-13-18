@@ -1,26 +1,43 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import LeftPane from './LeftPane'
-import RightPane from './RightPane'
+import Incident from './Incident'
+import Map from './Map'
 import './style.css'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#C5001A'
+    },
+    secondary: {
+      light: '#E4E3DB',
+      main: '#113743',
+      contrastText: '#C5BEBA'
+    }
+  }
+})
 
 const styles = {
+  Grid: {
+    backgroundColor: '#C5BEBA'
+  },
   Paper: {
-    padding: 20,
-    marginTop: 5,
-    marginBottom: 5,
-    backgroundColor: '#c5beba',
+    margin: 5,
+    borderRadius: 5,
     color: '#5c001a'
   }
 }
 
 export default props => (
-  <Grid container>
-    <Grid item sm color="secondary">
-      <LeftPane styles={styles} color="primary" />
+  <ThemeProvider theme={theme}>
+  <Grid container style={styles.Grid}>
+    <Grid className="col-xs-12 col-md-6">
+      <Map />
     </Grid>
-    <Grid item sm>
-      <RightPane styles={styles} />
+    <Grid className="col-xs-12 col-md-6" color="secondary">
+      <Incident styles={styles} color="primary" />
     </Grid>
   </Grid>
+  </ThemeProvider>
 )
