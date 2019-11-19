@@ -1,4 +1,4 @@
-*Thanks for visiting! This project is currently being reworked and will be live soon, bear with us please!
+*Thanks for visiting! This project is currently being reworked and will be live soon, bear with us please!*
 
 # Gun Violence 2013 - 2018 A Data Vis.
 
