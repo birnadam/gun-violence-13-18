@@ -46,7 +46,9 @@ exports.pullTenIncidentsByState = (state, req, res) => {
       if (err) {
         throw err;
       }
+      res.json(incidents);
       console.log(incidents);
+      return JSON.stringify(incidents);
       // res.send(req.params);
       // res.json(incidents);
     });
