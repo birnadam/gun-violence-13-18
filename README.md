@@ -1,4 +1,6 @@
-# gunDam.
+*Thanks for visiting! This project is currently being reworked and will be live soon, bear with us please!*
+
+# Gun Violence 2013 - 2018 A Data Vis.
 
 ## What is it?
 gunDam (gun damage) is a site focused towards informing users about gun violence in the U.S. We emphasize how prominent incidents are via data visualization. The focal point is our D3 choropleth map. 
@@ -7,8 +9,6 @@ gunDam (gun damage) is a site focused towards informing users about gun violence
 The app begins at a page that displays a brief intro and then underneath that is a choropleth map of the United States. Once you hover
 your mouse over a state it displays how many seperate incidents of gun violence have occured in that state from 2013 all the way until
 now.
-
-![demo image here](https://birnapwnsu.github.io/portfolio/img/gundammap.jpg)
 
 Once you click on a specific state, the map zooms in and you'll see more points appear on the map. These points specifically
 depict where incidents occured. You can tell which cities/counties are more concentrated or prone to gun violence. Simultaneously, there's a container underneath the map which is populated with incidents you can scroll through as well.
