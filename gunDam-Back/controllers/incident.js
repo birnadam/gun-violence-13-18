@@ -37,6 +37,19 @@ exports.pullAllIncidentsByState = (state, req, res) => {
     });
 };
 
+exports.pullTenIncidentsByState = (state, req, res) => {
+  Incident.find({ state })
+    .populate()
+    .sort({ date: -1 })
+    .limit(10)
+    .exec((err, incidents) => {
+      if (err) {
+        throw err;
+      }
+      console.log(incidents);
+    });
+};
+
 // // find all incidents per state sorted by n_killed
 exports.pullAllIncidentsByStateNumKilled = (state, req, res) => {
   Incident.find({ state })
