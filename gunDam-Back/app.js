@@ -26,7 +26,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 // routes middleware
-app.use("/", incidentRoutes);
+app.use("/api", incidentRoutes);
 
 const port = process.env.PORT || 5000;
 
