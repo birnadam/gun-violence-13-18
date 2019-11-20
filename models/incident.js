@@ -12,7 +12,8 @@ const IncidentSchema = new Schema({
 
     state: {
         type: String,
-        reqiored: true
+        required: true,
+        ref: "State"
     },
 
     city_or_county: {
