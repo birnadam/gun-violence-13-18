@@ -18,7 +18,8 @@ mongoose
   .connect(process.env.DATABASE || 'mongodb://localhost/gunDam', {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true
   })
   .then(() => console.log(`DB Connected`));
 
@@ -37,3 +38,13 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+
+// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+// const db = mongoose.connection;
+// db.on('error', error => console.error(error));
+// db.once('open', () => console.log('connected to db'));
+// app.use(express.urlencoded({extended: true}));
+// app.use(express.json());
