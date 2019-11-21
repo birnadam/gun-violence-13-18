@@ -1,20 +1,18 @@
 import React from 'react'
-import { Paper, Tabs, Tab } from '@material-ui/core'
+import { Tabs, Tab } from '@material-ui/core'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-
 import { makeStyles } from '@material-ui/core/styles'
-import { MenuItem, FormControl, Select } from '@material-ui/core'
+import AppBar from '@material-ui/core/AppBar'
 
 const useStyles = makeStyles(theme => ({
-  formControl: {
-    width: '14%',
-    position: 'relative',
-    top: '10px',
-    border: '1px solid #C5001A',
-    height: '24px',
-    boxShadow: '2px 2px 8px #C5001A',
-    textAlign: 'center',
-    textTransform: 'uppercase'
+  root: {
+    flexGrow: 1,
+    width: '100%'
+  },
+  tab: {
+    fontSize: 8,
+    minWidth: 80,
+    width: 80
   }
 }))
 
@@ -32,41 +30,31 @@ const theme = createMuiTheme({
 })
 
 export default ({ state, category, onSelect }) => {
-  const classes = useStyles()
-
   const index = category ? state.findIndex(group => group === category) + 1 : 0
 
   const onIndexSelect = (e, index) =>
     onSelect(index === 0 ? '' : state[index - 1])
+  console.log(index)
+  const classes = useStyles()
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper>
-        <Tabs
-          value={index}
-          onChange={onIndexSelect}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-        >
-          <Tab label="All" />
-          <Tab label="California" />
-          {/* <Tab label="Other" /> */}
-          <FormControl className={classes.formControl}>
-            <Select
-              value={index}
-              onChange={onIndexSelect}
-              indicatorColor="primary"
-              textColor="primary"
-              centered
-            >
-              {state.map(group => (
-                <MenuItem value={group}>{group}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Tabs>
-      </Paper>
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={index}
+            onChange={onIndexSelect}
+            variant="scrollable"
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="scrollable force tabs example"
+          >
+            {state.map(group => (
+              <Tab label={group} classes={{ root: classes.tab }} />
+            ))}
+          </Tabs>
+        </AppBar>
+      </div>
     </ThemeProvider>
   )
 }

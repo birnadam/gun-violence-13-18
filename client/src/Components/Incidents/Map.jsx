@@ -113,6 +113,11 @@ class Map extends Component {
       this.map.fitBounds(e.target.getBounds())
     }
 
+    const zoomToState = ({category}) => {
+      let coord = statesData.features[{category}].geometry.coordinates[0][15]
+      this.map.flyTo(new L.LatLng(coord[1], coord[0]), 5)
+    }
+
     const onEachFeature = (feature, layer) => {
       layer.on({
         mouseover: highlightFeature,

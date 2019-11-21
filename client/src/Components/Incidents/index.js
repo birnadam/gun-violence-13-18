@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
-import Incident from './Incident'
+import { Grid, Paper, Typography } from '@material-ui/core'
+// import Incident from './Incident'
 import Map from './Map'
 import './style.css'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -29,15 +29,24 @@ const styles = {
   }
 }
 
-export default props => (
+export default ({ incidents, category }) => (
   <ThemeProvider theme={theme}>
-  <Grid container style={styles.Grid}>
-    <Grid className="col-xs-12 col-md-6">
-      <Map />
+    <Grid container style={styles.Grid}>
+      <Grid className="col-xs-12 col-md-6">
+        <Map incidents={incidents} category={category} />
+      </Grid>
+      <Grid className="col-xs-12 col-md-6" color="secondary">
+        <Paper style={styles.Paper}>
+          <div id="incident">
+            <Typography variant="h2" style={{ marginLeft: 10, paddingTop: 10 }}>
+              Welcome!
+            </Typography>
+            <Typography variant="h5" style={{ marginLeft: 10, marginTop: 20 }}>
+              Please select a state to display incidents
+            </Typography>
+          </div>
+        </Paper>
+      </Grid>
     </Grid>
-    <Grid className="col-xs-12 col-md-6" color="secondary">
-      <Incident styles={styles} color="primary" />
-    </Grid>
-  </Grid>
   </ThemeProvider>
 )
