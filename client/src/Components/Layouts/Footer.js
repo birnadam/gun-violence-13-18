@@ -33,8 +33,9 @@ export default ({ state, category, onSelect }) => {
   const index = category ? state.findIndex(group => group === category) + 1 : 0
 
   const onIndexSelect = (e, index) =>
-    onSelect(index === 0 ? '' : state[index - 1])
-  console.log(index)
+    // onSelect(index === 0 ? '' : state[index])
+    onSelect(index === 0 ? '' : index)
+  // console.log(index)
   const classes = useStyles()
 
   return (
