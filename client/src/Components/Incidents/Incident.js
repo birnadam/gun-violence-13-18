@@ -1,15 +1,12 @@
-import React, { Component } from "react";
-import { Paper } from "@material-ui/core";
-// import mongoose from 'mongoose';
-// import axios from "axios";
-// import CA from '../Data/CA';
+import React, { Component } from 'react'
+import { Paper } from '@material-ui/core'
 
 class Incident extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       incidents: []
-    };
+    }
   }
 
   // fetch = state => {
@@ -38,15 +35,15 @@ class Incident extends Component {
 
   getIncidents() {
     setTimeout(() => {
-      console.log("Our data is fetched");
+      console.log('Our data is fetched')
       this.setState({
-        incidents: ["incident 1", "incident 2"]
-      });
-    }, 1000);
+        incidents: ['incident 1', 'incident 2']
+      })
+    }, 1000)
   }
 
   componentDidMount() {
-    this.getIncidents();
+    this.getIncidents()
     // this.search();
     // this.fetch("California");
   }
@@ -57,15 +54,13 @@ class Incident extends Component {
         <Paper style={this.props.styles.Paper}>
           <div id="incident">
             {this.state.incidents.map(incident => {
-              return <div>{incident}</div>;
+              return <div>{incident}</div>
             })}
           </div>
         </Paper>
       </div>
-    );
+    )
   }
 }
 
-export default Incident;
-
-// export default ({ styles }) =>
+export default Incident

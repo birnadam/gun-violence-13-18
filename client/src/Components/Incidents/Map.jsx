@@ -8,6 +8,7 @@ import data from '../Data/data.csv'
 // import * as Usoutline from '../Data/us_outline.json'
 // import * as States from '../Data/states.json'
 import * as County from '../Data/county.json'
+import { state } from '../Data/state.js'
 
 const styles = {
   Paper: {
@@ -122,7 +123,7 @@ class Map extends Component {
     }
     d3.csv(data)
       .then(function(data) {
-        console.log(data)
+        // console.log(data)
         // let dataArray = []
         for (let d = 0; d < data.length; d++) {
           // grab State Name
@@ -220,14 +221,21 @@ class Map extends Component {
 
   componentDidUpdate() {
     // check if data has changed
-    
     const updateMap = () => {
-      let index = this.props.category
-    let coord = statesData.features[index].geometry.coordinates[0][15]
-    console.log(this.props.category)
-    this.map.flyTo(new L.LatLng(coord[1], coord[0]), 5)
-  }
-  updateMap();
+      if (this.props.category === 'All') {
+        this.map.flyTo(new L.LatLng(37.8, -96), 3.5)
+      } else {
+        let index = state.indexOf(this.props.category)
+        let coord =
+          statesData.features[index].geometry.coordinates[0][8] ||
+          statesData.features[index].geometry.coordinates[0][0][1]
+        this.map.flyTo(new L.LatLng(coord[1], coord[0]), 5)
+        // console.log(this.props.category)
+        // console.log(statesData.features[index].geometry.coordinates[0][8] || statesData.features[index].geometry.coordinates[0][0][1])
+      }
+    }
+
+    updateMap()
   }
 
   render() {

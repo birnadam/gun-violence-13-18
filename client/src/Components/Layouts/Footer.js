@@ -33,8 +33,8 @@ export default ({ state, category, onSelect }) => {
   const index = category ? state.findIndex(group => group === category) + 1 : 0
 
   const onIndexSelect = (e, index) =>
-    // onSelect(index === 0 ? '' : state[index])
-    onSelect(index === 0 ? '' : index)
+    onSelect(index === 0 ? 'All' : state[index - 1])
+  // onSelect(index === 0 ? '' : index)
   // console.log(index)
   const classes = useStyles()
 
@@ -50,6 +50,7 @@ export default ({ state, category, onSelect }) => {
             textColor="primary"
             aria-label="scrollable force tabs example"
           >
+            <Tab label="ALL" />
             {state.map(group => (
               <Tab label={group} classes={{ root: classes.tab }} />
             ))}

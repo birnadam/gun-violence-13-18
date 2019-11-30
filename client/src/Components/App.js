@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Header, Footer } from './Layouts'
 import Incidents from './Incidents'
-import { state, incidents } from '../Components/Data/testData.js'
+import { state } from './Data/state.js'
+import { incidents } from './Data/incidents.js'
 
 export default class extends Component {
   state = {
@@ -9,6 +10,8 @@ export default class extends Component {
   }
 
   getIncidentsByState() {
+    console.log(incidents)
+    console.log({ incidents })
     return Object.entries(
       this.state.incidents.reduce((incidents, incident) => {
         const { state } = incident
