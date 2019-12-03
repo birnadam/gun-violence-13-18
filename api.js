@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mysql = require('mysql')
 
 const app = express()
@@ -11,6 +12,8 @@ const db = mysql.createConnection({
   password: 'password',
   database: 'incidents'
 })
+
+app.use(cors())
 
 app.get('/getAllIncidents', (req, res) => {
   const query = 'SELECT * FROM INCIDENTS'

@@ -2,11 +2,18 @@ import React, { Component, Fragment } from 'react'
 import { Header, Footer } from './Layouts'
 import Incidents from './Incidents'
 import { state } from './Data/state.js'
-import { incidents } from './Data/incidents.js'
 
 export default class extends Component {
   state = {
-    incidents
+    incidents: []
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:4000/getAllIncidents')
+    .then(res => res.json())
+    .then(json => {
+      this.setState({ incidents: json})
+    })
   }
 
   getIncidentsByState() {
@@ -32,6 +39,7 @@ export default class extends Component {
   }
 
   render() {
+    console.log(this.state)
     const incidents = this.getIncidentsByState(),
       { category } = this.state
     return (
